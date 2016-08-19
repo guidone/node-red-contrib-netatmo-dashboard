@@ -26,10 +26,17 @@
       "netatmo": "netatmo-dashboard.js"
     }
   },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/guidone/node-red-contrib-netatmo-dashboard.git"
+    }
+  ],
   "maintainers": [
     {
       "name": "Guido Bellomo",
-      "email": "guido.bellomo@gmail.com"
+      "email": "guido.bellomo@gmail.com",
+      "web": "http://javascript-jedi.com"
     }
   ]
 }
