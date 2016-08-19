@@ -17,10 +17,7 @@ module.exports = function (RED) {
       });
 
       api.getStationsData(function(err, data) {
-        console.log(data);
-        console.log(data[0].modules)
         msg.payload = {};
-
         _(data).each(function(station) {
           if (station.type == 'NAMain') {
             msg.payload.temperature = station.dashboard_data.Temperature;
