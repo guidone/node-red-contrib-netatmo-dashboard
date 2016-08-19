@@ -1,0 +1,62 @@
+<script type="text/javascript">
+  RED.nodes.registerType('netatmo-dashboard',{
+    category: 'Netatmo',
+    color: '#669966',
+    defaults: {
+      creds: {value: '',type: 'netatmo-config-node'}
+    },
+    inputs:1,
+    outputs:1,
+    icon: "feed.png",
+    label: function() {
+      return 'NetAtmo Dashboard';
+    }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="netatmo-dashboard">
+<div class="form-row">
+  <label for="node-input-client_id"><i class="icon-tag"></i> Creds</label>
+  <input type="text" id="node-input-creds" placeholder="Add NetAtmo credentials">
+</div>
+</script>
+
+<script type="text/x-red" data-help-name="netatmo-dashboard">
+todo
+</script>
+
+<script type="text/javascript">
+
+RED.nodes.registerType('netatmo-config-node',{
+  category: 'config',
+  defaults: {
+      client_id: {value:"",required:true},
+      client_secret: {value:"",required:true},
+      username: {value:"",required:true},
+      password: {value:"",required:true}
+  },
+  label: function() {
+    return 'Netatmo device: ' + this.client_id;
+  }
+});
+
+</script>
+
+<script type="text/x-red" data-template-name="netatmo-config-node">
+    <div class="form-row">
+        <label for="node-input-client_id"><i class="icon-tag"></i> Client ID</label>
+        <input type="text" id="node-config-input-client_id" placeholder="56e984c449c7...">
+    </div>
+   <div class="form-row">
+        <label for="node-input-client_secret"><i class="icon-tag"></i> Client Secret</label>
+        <input type="text" id="node-config-input-client_secret" placeholder="X4l1Ct9G....">
+    </div>
+   <div class="form-row">
+        <label for="node-input-username"><i class="icon-tag"></i> User name</label>
+        <input type="text" id="node-config-input-username" placeholder="your@email.com">
+    </div>
+   <div class="form-row">
+        <label for="node-input-password"><i class="icon-tag"></i> Password</label>
+        <input type="text" id="node-config-input-password" placeholder="yourPassword">
+    </div>
+</script>

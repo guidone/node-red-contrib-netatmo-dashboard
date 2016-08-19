@@ -1,0 +1,35 @@
+{
+  "author": {
+    "name": "Guido Bellomo",
+    "email": "guido.bellomo@gmail.com"
+  },
+  "name": "node-red-contrib-netatmo-dashboard",
+  "description": "Get JSON payload for NetAtmo dashboard. See http://netatmo.com, https://dev.netatmo.com/doc",
+  "dependencies": {
+    "netatmo": "1.5.0",
+    "underscore": "^1.8.3"
+  },
+  "version": "0.1.0",
+  "keywords": [
+    "node-red",
+    "netatmo",
+    "camera",
+    "tags",
+    "sensors",
+    "weather",
+    "iot",
+    "ibm"
+  ],
+  "license": "MIT",
+  "node-red": {
+    "nodes": {
+      "netatmo": "netatmo-dashboard.js"
+    }
+  },
+  "maintainers": [
+    {
+      "name": "Guido Bellomo",
+      "email": "guido.bellomo@gmail.com"
+    }
+  ]
+}
