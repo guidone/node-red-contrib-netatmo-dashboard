@@ -15,6 +15,14 @@ module.exports = function (RED) {
         'username': this.creds.username,
         'password': this.creds.password
       });
+      
+      api.on("error", function(error) {
+        node.error(error);
+      });
+      
+      api.on("warning", function(error) {
+        node.warn(error);
+      });
 
       api.getStationsData(function(err, data) {
         msg.payload = {};
