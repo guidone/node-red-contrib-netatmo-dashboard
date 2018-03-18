@@ -6,7 +6,8 @@
   "name": "node-red-contrib-netatmo-dashboard",
   "description": "Get JSON payload for NetAtmo dashboard. See http://netatmo.com, https://dev.netatmo.com/doc",
   "dependencies": {
-    "netatmo": "2.0.0",
+    "netatmo": "2.1.0",
+    "prettyjson": "^1.2.1",
     "underscore": "^1.8.3"
   },
   "version": "0.2.3",
@@ -23,7 +24,8 @@
   "license": "MIT",
   "node-red": {
     "nodes": {
-      "netatmo": "netatmo-dashboard.js"
+      "netatmo": "netatmo-dashboard.js",
+      "netatmo-camera": "netatmo-camera.js"
     }
   },
   "repositories": [

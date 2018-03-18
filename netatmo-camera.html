@@ -1,0 +1,27 @@
+<script type="text/javascript">
+  RED.nodes.registerType('netatmo-camera',{
+    category: 'Netatmo',
+    color: '#669966',
+    defaults: {
+      creds: {value: '',type: 'netatmo-config-node'}
+    },
+    inputs:1,
+    outputs:1,
+    icon: "feed.png",
+    label: function() {
+      return 'NetAtmo Camera';
+    }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="netatmo-camera">
+<div class="form-row">
+  <label for="node-input-client_id"><i class="icon-tag"></i> Credentials</label>
+  <input type="text" id="node-input-creds" placeholder="Add NetAtmo credentials">
+</div>
+</script>
+
+<script type="text/x-red" data-help-name="netatmo-camera">
+Get a snapshot from NetAtmo camera
+</script>
+
