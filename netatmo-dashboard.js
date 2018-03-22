@@ -10,16 +10,17 @@ module.exports = function (RED) {
     this.on('input', function (msg) {
 
       var api = new netatmo({
-        'client_id': this.creds.client_id,
-        'client_secret': this.creds.client_secret,
-        'username': this.creds.username,
-        'password': this.creds.password
+        client_id: this.creds.client_id,
+        client_secret: this.creds.client_secret,
+        username: this.creds.username,
+        password: this.creds.password,
+        scope: 'access_camera read_station read_thermostat write_thermostat read_camera read_homecoach read_presence'
       });
-      
+
       api.on("error", function(error) {
         node.error(error);
       });
-      
+
       api.on("warning", function(error) {
         node.warn(error);
       });
