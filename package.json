@@ -7,6 +7,7 @@
   "description": "Get JSON payload for NetAtmo dashboard. See http://netatmo.com, https://dev.netatmo.com/doc",
   "dependencies": {
     "netatmo": "2.1.0",
+    "np": "^3.0.4",
     "prettyjson": "^1.2.1",
     "request": "^2.85.0",
     "underscore": "^1.8.3"
