@@ -12,7 +12,7 @@
     "request": "^2.85.0",
     "underscore": "^1.8.3"
   },
-  "version": "0.3.2",
+  "version": "0.4.1",
   "keywords": [
     "node-red",
     "netatmo",
