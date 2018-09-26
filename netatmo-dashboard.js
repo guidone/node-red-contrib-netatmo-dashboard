@@ -41,6 +41,7 @@ module.exports = function (RED) {
                 _(data).each(function(station) {
                     if (station.type === 'NAMain') {
                         msg.payload.compact.temperature = station.dashboard_data.Temperature;
+                        msg.payload.compact.temperatureTrend = station.dashboard_data.temp_trend;
                         msg.payload.compact.co2 = station.dashboard_data.CO2;
                         msg.payload.compact.humidity = station.dashboard_data.Humidity;
                         msg.payload.compact.noise = station.dashboard_data.Noise;
@@ -54,7 +55,7 @@ module.exports = function (RED) {
                             if (module.type === 'NAModule1') {
                                 msg.payload.compact.outdoor.temperature = module.dashboard_data.Temperature;
                                 msg.payload.compact.outdoor.humidity = module.dashboard_data.Humidity;
-                                msg.payload.compact.outdoor.temperatureTrend = module.dashboard_data.temp_trend;
+                                msg.payload.compact.outdoor.temperatureTrend = station.dashboard_data.temp_trend;
                                 msg.payload.compact.outdoor.battery_percent = module.battery_percent;
                                 msg.payload.compact.outdoor.rf_status = module.rf_status;
                             }
