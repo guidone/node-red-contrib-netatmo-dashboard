@@ -6,6 +6,10 @@ Returns a payload which is split up into to parts:
 * a compact object which contains the most relevant information
 * a detailed object which contains the complete return from the netatmo api
 
+__Attention: The reachable status of the complete station seems not to changefor at least a 
+couple of hours. While the reachable status of devices change after approximately 1h, 
+the station itselve will shown as reachable even if this is not the case__
+
 An Example:
 
 ```
@@ -14,6 +18,7 @@ An Example:
         {
             "outdoor":
                 {
+                    "reachable": true,
                     "temperature":15.1,
                     "humidity":86,
                     "temperatureTrend":"down",
@@ -22,12 +27,91 @@ An Example:
                 },
              "rain":
                 {
+                    "reachable": true,
                     "rain":0,
                     "sum_rain_24":0.4,
                     "sum_rain_1":0.101,
                     "battery_percent":45,
                     "rf_status":40
                 },
+                modules: 
+                   [ { 
+                        name: 'wohnzimmer',
+                        data_type: [ 'Temperature', 'CO2', 'Humidity' ],
+                        "battery_percent": 14,
+                        "rf_status": 80,
+                        "reachable": true,
+                        "dashboard_data": 
+                        { 
+                            "time_utc": 1545901333,
+                            "Temperature": 23.1,
+                            "CO2": 1555,
+                            "Humidity": 50,
+                            "min_temp": 22.7,
+                            "max_temp": 23.6,
+                            "date_min_temp": 1545866372,
+                            "date_max_temp": 1545896155,
+                            "temp_trend": 'stable' 
+                        },
+                        "temperature": 23.1,
+                        "Humidity": 50,
+                        "CO2": 1555,
+                        "min_temp": 22.7,
+                        "max_temp": 23.6,
+                        "date_min_temp": 1545866372,
+                        "date_max_temp": 1545896155 },
+                    { 
+                        "name": 'Kinderzimmer',
+                        "data_type": [ 'Temperature', 'CO2', 'Humidity' ],
+                        "battery_percent": 45,
+                        "rf_status": 70,
+                        "reachable": true,
+                        "dashboard_data": 
+                        {   
+                            "time_utc": 1545901314,
+                            "Temperature": 23.2,
+                            "CO2": 1258,
+                            "Humidity": 48,
+                            "min_temp": 23,
+                            "max_temp": 23.6,
+                            "date_min_temp": 1545888753,
+                            "date_max_temp": 1545865225,
+                            "temp_trend": 'stable' 
+                        },
+                        "temperature": 23.2,
+                        "Humidity": 48,
+                        "CO2": 1258,
+                        "min_temp": 23,
+                        "max_temp": 23.6,
+                        "date_min_temp": 1545888753,
+                        "date_max_temp": 1545865225 
+                    },
+                     {  
+                        "name": 'Schlafzimmer',
+                        "data_type": [ 'Temperature', 'CO2', 'Humidity'],
+                        battery_percent: 80,
+                        "rf_status": 68,
+                        "reachable": true,
+                        "dashboard_data": 
+                        { 
+                            "time_utc": 1545901314,
+                            "Temperature": 22.7,
+                            "CO2": 1497,
+                            "Humidity": 56,
+                            "min_temp": 22.5,
+                            "max_temp": 22.8,
+                            "date_min_temp": 1545865225,
+                            "date_max_temp": 1545885422,
+                            "temp_trend": 'stable' 
+                        },
+                        "temperature": 22.7,
+                        "Humidity": 56,
+                        "CO2: 1497",
+                        "min_temp": 22.5,
+                        "max_temp": 22.8,
+                        "date_min_temp": 1545865225,
+                        "date_max_temp": 1545885422 
+                    },
             "temperature":28.9,
             "co2":704,
             "humidity":43,
@@ -35,7 +119,8 @@ An Example:
             "pressure":1021.3,
             "pressureTrend":"down",
             "station_name":"Netatmo#Main",
-            "last_status_store":1536857210
+            "last_status_store":1536857210,
+            "reachable": true,
         },
     "detailed":
         [
