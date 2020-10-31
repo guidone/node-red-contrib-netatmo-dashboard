@@ -29,6 +29,7 @@ module.exports = function (RED) {
                 msg.payload = {};
                 msg.payload.compact = {};
                 msg.payload.compact.outdoor = {};
+                msg.payload.compact.wind = {};
                 msg.payload.compact.rain = {};
                 msg.payload.compact.modules = [];
                 msg.payload.detailed = {};
@@ -88,6 +89,34 @@ module.exports = function (RED) {
                                 }
                             }
 
+                            if (module.type === 'NAModule2') { //Wind Sensor
+
+                                msg.payload.compact.wind.reachable = module.reachable || "false";
+                                msg.payload.compact.wind.battery_percent = module.battery_percent !== "undefined" ? module.battery_percent : "N.N.";
+                                msg.payload.compact.wind.rf_status = module.rf_status !== "undefined" ? module.rf_status : "N.N.";
+
+                                if(typeof module.dashboard_data !== "undefined") {
+                                    msg.payload.compact.wind.time_utc = module.dashboard_data.time_utc !== "undefined" ? module.dashboard_data.time_utc : "N.N.";
+                                    msg.payload.compact.wind.WindStrength = module.dashboard_data.WindStrength !== "undefined" ? module.dashboard_data.WindStrength : "N.N.";
+                                    msg.payload.compact.wind.WindAngle = module.dashboard_data.WindAngle !== "undefined" ? module.dashboard_data.WindAngle : "N.N.";
+                                    msg.payload.compact.wind.GustStrength = module.dashboard_data.GustStrength !== "undefined" ? module.dashboard_data.GustStrength : "N.N.";
+                                    msg.payload.compact.wind.GustAngle = module.dashboard_data.GustAngle !== "undefined" ? module.dashboard_data.GustAngle : "N.N.";
+                                    msg.payload.compact.wind.max_wind_str = module.dashboard_data.max_wind_str !== "undefined" ? module.dashboard_data.max_wind_str : "N.N.";
+                                    msg.payload.compact.wind.max_wind_angle = module.dashboard_data.max_wind_angle !== "undefined" ? module.dashboard_data.max_wind_angle : "N.N.";
+                                    msg.payload.compact.wind.date_max_wind_str = module.dashboard_data.date_max_wind_str !== "undefined" ? module.dashboard_data.date_max_wind_str : "N.N.";
+                                }
+                                else {
+                                    msg.payload.compact.wind.time_utc = "N.N.";
+                                    msg.payload.compact.wind.WindStrength = "N.N.";
+                                    msg.payload.compact.wind.WindAngle = "N.N.";
+                                    msg.payload.compact.wind.GustStrength = "N.N.";
+                                    msg.payload.compact.wind.GustAngle = "N.N.";
+                                    msg.payload.compact.wind.max_wind_str = "N.N.";
+                                    msg.payload.compact.wind.max_wind_angle = "N.N.";
+                                    msg.payload.compact.wind.date_max_wind_str = "N.N.";
+                                }
+                            }
+
                             if(module.type === 'NAModule3') { //Rain Sensor
 
                                 msg.payload.compact.rain.reachable = module.reachable || "false";
@@ -139,11 +168,6 @@ module.exports = function (RED) {
                                     tmpObj.date_min_temp =  "N.N.";
                                     tmpObj.date_max_temp =  "N.N.";
                                 }
-
-
-
-
-
 
                                 msg.payload.compact.modules.push(tmpObj);
                             }
