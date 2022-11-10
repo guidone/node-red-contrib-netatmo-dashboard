@@ -237,7 +237,18 @@ An Example:
     }
 ```
 
-See [Netatmo Connect](https://dev.netatmo.com/) to get an API key.
+## Authentication
+NetAtmo changed the authentication scheme in October 2022, in order to authenticate with your device you will need to create an application in [Netatmo Connect](https://dev.netatmo.com/) and obtain: *client_id*, *client_secret* and *refresh_token*.
+To get the refresh_token a OAuth2 client is needed (i.e. [Paw](https://paw.cloud/) for MacOS): use these params
+
+* client_id: from your app in Netatmo Connect
+* client_secret: from your app in Netamo Connect
+* Authorization URL: https://api.netatmo.com/oauth2/authorize
+* Access URL: https://api.netatmo.com/oauth2/token
+* Redirect URL: http://localhost
+
+
+Click on **Get token** and then on the input box of *Refresh token*.
 
 ## The MIT License
 Permission is hereby granted, free of charge, to any person obtaining a copy
