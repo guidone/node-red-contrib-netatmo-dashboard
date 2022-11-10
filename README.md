@@ -247,6 +247,7 @@ To get the refresh_token a OAuth2 client is needed (i.e. [Paw](https://paw.cloud
 * Access URL: https://api.netatmo.com/oauth2/token
 * Redirect URL: http://localhost
 
+![Paw Refresh Token](https://raw.githubusercontent.com/guidone/node-red-contrib-netatmo-dashboard/e34cb8ae88fe5fd5c42f55742d74f6b950f6716d/images/refresh-token.png)
 
 Click on **Get token** and then on the input box of *Refresh token*.
 
