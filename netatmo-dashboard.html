@@ -14,36 +14,65 @@
   });
 </script>
 
+
 <script type="text/x-red" data-template-name="netatmo-dashboard">
-<div class="form-row">
-  <label for="node-input-client_id"><i class="icon-tag"></i> Credentials</label>
-  <input type="text" id="node-input-creds" placeholder="Add NetAtmo credentials">
-</div>
+  <div class="form-row">
+    <label for="node-input-client_id"><i class="icon-tag"></i> Credentials</label>
+    <input type="text" id="node-input-creds" placeholder="Add NetAtmo credentials">
+  </div>
 </script>
 
-<script type="text/x-red" data-help-name="netatmo-dashboard">
-Get JSON payload for NetAtmo dashboard. See http://netatmo.com, https://dev.netatmo.com/doc
+
+<script type="text/html" data-help-name="netatmo-dashboard">
+  <p>Get JSON payload for NetAtmo dashboard. See http://netatmo.com, https://dev.netatmo.com/doc</p>
+  <h3>Outputs</h3>
+  <ol class="node-ports">
+    <li>Standard output
+      <dl class="message-properties">
+      <dt>payload <span class="property-type">Object</span></dt>
+      <dd>the standard output of the command.</dd>
+      </dl>
+    </li>
+  </ol>
+  <h3>Details</h3>
+  <p>
+    <code>msg.payload</code> is used as the payload of the published message.
+    It contains the <code>compact</code> object with the most useful values.
+    The whole received message can be seen in the <code>detailed</code> object.
+  </p>
+
+  <h3>References</h3>
+  <ul>
+    <li><a>GitHub</a> - the nodes github repository</li>
+  </ul>
 </script>
+
 
 <script type="text/javascript">
-
 RED.nodes.registerType('netatmo-config-node',{
   category: 'config',
   defaults: {
+      device: {value:"weather_station",required:true},
       name: {value:"",required:true},
       client_id: {value:"",required:true},
       client_secret: {value:"",required:true},
       refresh_token: {value:"",required:true}
   },
   label: function() {
-    return 'Netatmo device: ' + this.name;
+    return this.device + ': ' + this.name;
   }
 });
-
 </script>
 
-<script type="text/x-red" data-template-name="netatmo-config-node">
 
+<script type="text/x-red" data-template-name="netatmo-config-node">
+  <div class="form-row">
+    <label for="node-input-device"><i class="icon-tag"></i> Device Scope</label>
+	<select id="node-config-input-device" name="device">
+	  <option value="weather_station">Weather Station</option>
+	  <option value="home_coach">Home Coach</option>
+	</select>	
+  </div>
   <div class="form-row">
     <label for="node-input-name"><i class="icon-tag"></i> App name</label>
     <input type="text" id="node-config-input-name" placeholder="MyApp">
@@ -59,5 +88,5 @@ RED.nodes.registerType('netatmo-config-node',{
   <div class="form-row">
     <label for="node-input-refresh_token"><i class="icon-tag"></i> Refresh Token</label>
     <input type="text" id="node-config-input-refresh_token" placeholder="1234567...">
-</div>
+  </div>
 </script>
